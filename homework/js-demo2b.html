@@ -53,7 +53,33 @@
             //Load data from json file to each paragraphs
             $.getJSON('data.json', function(jqdata) {
                 $('caption').append(jqdata.title);
-                $('#showheading:first-child').append(jqdata.heading);
+                $('#showheading th:first-child').append(jqdata.heading);
+                $('#showheading th:nth-child(2)').append(jqdata.head1);
+                $('#showheading th:nth-child(3)').append(jqdata.head2);
+                $('#showheading th:nth-child(4)').append(jqdata.head3);
+                $('#showheading th:last-child').append(jqdata.head4);
+
+                // fill out td 
+                $('#showcalories td:first-child').append(jqdata.subheadcal);
+                $('#showcalories td:nth-child(2)').append(jqdata.cal1);
+                $('#showcalories td:nth-child(3)').append(jqdata.cal2);
+                $('#showcalories td:nth-child(4)').append(jqdata.cal3);
+                $('#showcalories td:nth-child(5)').append(jqdata.cal4);
+
+                $('#showfat td:first-child').append(jqdata.subheadfat);
+                $('#showfat td:nth-child(2)').append(jqdata.fat1);
+                $('#showfat td:nth-child(3)').append(jqdata.fat2);
+                $('#showfat td:nth-child(4)').append(jqdata.fat3);
+                $('#showfat td:nth-child(5)').append(jqdata.fat4);
+
+                $('#showven td:first-child').append(jqdata.subheadven);
+                $('#showven td:nth-child(2)').append(jqdata.ven1);
+                $('#showven td:nth-child(3)').append(jqdata.ven2);
+                $('#showven td:nth-child(4)').append(jqdata.ven3);
+                $('#showven td:nth-child(5)').append(jqdata.ven4);
+
+                // disable the button
+                $('#btn').prop('disabled', true);
             });
         });
     });
