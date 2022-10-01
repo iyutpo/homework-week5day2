@@ -10,8 +10,52 @@
 <script>
     $(document).ready(function() {
        $("#btn").click(function(event){
-
-       });
+            var emptyTable = `
+            <table>
+                <caption></caption>
+                <thead>
+                    <tr id="showheading">
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr id="showcalories">
+                        <td></td>
+                        <td></td> 
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr id="showfat">
+                        <td></td>
+                        <td></td> 
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr id="showven">
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+                </table>
+            `;
+            $('body').append(emptyTable);
+            //Load data from json file to each paragraphs
+            $.getJSON('data.json', function(jqdata) {
+                $('caption').append(jqdata.title);
+                $('#showheading:first-child').append(jqdata.heading);
+            });
+        });
     });
  </script>
 </head> 	
@@ -33,8 +77,8 @@
   <h1>My Second Heading</h1>
   <p>My Second paragraph.</p>
 
-  <table>
-    <!--<caption></caption>
+  <!-- <table>
+    <caption></caption>
     <thead>
         <tr id="showheading">
             <th></th>
@@ -68,8 +112,8 @@
             <td></td>
             <td></td>
         </tr>
-    </tfoot>-->
-    </table>
+    </tfoot>
+    </table> -->
 
     <input type = "button" id = "btn" value = "Load Data" style="margin-top:20px;" />
 </main>
